@@ -1,6 +1,6 @@
 [user]
 	name = Julian Lannigan
-	email = julian.lannigan@homes.com
+	email = (none)
 [color]
 	ui = true
 [credential]
@@ -24,6 +24,9 @@
 	cane = commit --amend --no-edit
 	deploy = push deploy master
 	psuo = push -u origin
+	cara = commit --amend --reset-author
+	email-guess = !. ~/dev/dotfiles/git-utils/email-guess.sh
+	eg = !. ~/dev/dotfiles/git-utils/email-guess.sh
 [push]
 	default = simple
 [difftool "sourcetree"]
