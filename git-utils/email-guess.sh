@@ -9,6 +9,9 @@ fi
 if [[ $remote == *stash.homes.com* ]]; then
   email=julian.lannigan@homes.com
 fi
+if [[ $remote == *code.dev.homes.com* ]]; then
+  email=julian.lannigan@homes.com
+fi
 
 echo "Configuring user.email as $email"
 git config user.email $email
