@@ -1,6 +1,7 @@
 [user]
 	name = Julian Lannigan
 	email = (none)
+	signingkey = 03AF5C12 
 [color]
 	ui = true
 [credential]
@@ -27,11 +28,16 @@
 	cara = commit --amend --reset-author
 	email-guess = !. ~/dev/dotfiles/git-utils/email-guess.sh
 	eg = !. ~/dev/dotfiles/git-utils/email-guess.sh
+	der = push
+	suh = pull
 [push]
 	default = simple
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
