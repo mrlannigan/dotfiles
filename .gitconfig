@@ -8,6 +8,7 @@
 	helper = osxkeychain
 [core]
 	excludesfile = ~/.gitignore_global
+	hooksPath = ~/dev/dotfiles/git-utils/hooks
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
