@@ -1,7 +1,7 @@
 [user]
 	name = Julian Lannigan
-	email = (none)
 	signingkey = 03AF5C12 
+	useConfigOnly = true
 [color]
 	ui = true
 [credential]
