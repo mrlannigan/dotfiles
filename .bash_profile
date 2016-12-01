@@ -84,17 +84,19 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-eval "$(thefuck-alias)"
+eval "$(thefuck --alias)"
 
 #
 # NODE-COMPLETE
 # Custom command line tab completion for Node.js
 #
-shopt -s progcomp
-for f in $(command ls ~/.node-completion); do
-  f="$HOME/.node-completion/$f"
-  test -f "$f" && . "$f"
-done
+if [ -d ~/.node-completion ]; then
+    shopt -s progcomp
+    for f in $(command ls ~/.node-completion); do
+      f="$HOME/.node-completion/$f"
+      test -f "$f" && . "$f"
+    done
+fi
 
 export NVM_DIR="/Users/julian/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
