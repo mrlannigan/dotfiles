@@ -17,6 +17,8 @@ fi
 main()
 {
     clone_dotfiles
+    install_other_brew_packages
+    install_nvm
     continue_with_dot
 }
 
@@ -59,7 +61,7 @@ ensure_has_homebrew()
 
 bin_exists()
 {
-    command -v $1 >/dev/null 2>&1 
+    command -v $1 >/dev/null 2>&1
 }
 
 check_installed()
@@ -83,6 +85,16 @@ install()
     printf "Installing $@..."
     sudo apt-get install $verbosity --yes --force-yes $@
     printf 'done\n'
+}
+
+install_other_brew_packages()
+{
+    ensure_installed forture cowsay thefuck wget
+}
+
+install_nvm()
+{
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
 }
 
 continue_with_dot()
