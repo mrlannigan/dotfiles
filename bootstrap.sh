@@ -101,3 +101,5 @@ continue_with_dot()
 {
     exec $DOTFILES_DEST/dot install
 }
+
+main
