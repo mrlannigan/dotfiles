@@ -76,7 +76,7 @@ check_installed()
 ensure_installed()
 {
     for package; do
-        check_installed $package || install $package
+        check_installed $package #|| install $package
     done
 }
 
