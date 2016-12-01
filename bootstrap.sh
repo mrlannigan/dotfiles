@@ -76,14 +76,18 @@ check_installed()
 ensure_installed()
 {
     for package; do
-        check_installed $package #|| install $package
+        check_installed $package || install $package
     done
 }
 
 install()
 {
     printf "Installing $@..."
-    sudo apt-get install $verbosity --yes --force-yes $@
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        brew install $@
+    else
+        sudo apt-get install $verbosity --yes --force-yes $@
+    fi
     printf 'done\n'
 }
 
