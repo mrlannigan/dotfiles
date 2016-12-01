@@ -93,7 +93,7 @@ install()
 
 install_other_brew_packages()
 {
-    ensure_installed fortune cowsay thefuck wget
+    ensure_installed fortune cowsay thefuck wget watch
 }
 
 install_nvm()
