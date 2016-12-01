@@ -55,7 +55,7 @@ ensure_has_homebrew()
     printf 'Checking for homebrew... '
      bin_exists brew && printf 'found\n' || {
         printf 'installing\n'
-        ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     }
 }
 
