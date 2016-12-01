@@ -45,7 +45,7 @@ clone_dotfiles()
 
 setup()
 {
-    if [ "$OSTYPE" = darwin* ]; then
+    if [[ "$OSTYPE" == "darwin"* ]]; then
         ensure_has_homebrew
     fi
 }
