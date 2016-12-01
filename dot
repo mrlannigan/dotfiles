@@ -1,0 +1,116 @@
+#! /usr/bin/env python
+
+from glob import iglob as glob
+import argparse
+import errno
+import os
+import pipes
+import subprocess
+import sys
+
+
+def main(arguments):
+    if arguments.command == "help":
+        parser.print_help()
+    elif arguments.command == "install":
+        make_symlinks(arguments)
+        set_up_vim(arguments)
+    sys.exit(0)
+
+
+def make_symlinks(arguments):
+    """
+    Symlink all the dotfiles into the destination directory.
+
+    """
+
+    ignored = set(
+        [
+            ".git",
+            ".gitignore",
+            ".gitmodules",
+        ],
+    )
+
+    for dotfile in glob(os.path.join(arguments.dotfiles, ".*")):
+        if os.path.basename(dotfile) in ignored:
+            continue
+
+        dest = os.path.join(arguments.dest_dir, os.path.basename(dotfile))
+        symlink_unless_present(dotfile, dest)
+
+    bin_dir = os.path.abspath(os.path.normpath(arguments.bin_dir))
+    try:
+        os.makedirs(bin_dir)
+    except OSError as error:
+        if error.errno != errno.EEXIST:
+            raise
+
+    for dotfile in glob(os.path.join(arguments.dotfiles, "bin", ".*")):
+        dest = os.path.join(bin_dir, os.path.basename(dotfile))
+        symlink_unless_present(dotfile, dest)
+
+
+def symlink_unless_present(file, dest):
+    """
+    Symlink a file into the destination unless it exists already.
+
+    """
+
+    try:
+        os.symlink(file, dest)
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
+        print "{0} already exists! Skipping...".format(dest)
+    else:
+        print "Linked {0} into {1}".format(file, dest)
+
+
+def set_up_vim(arguments):
+    """
+    Install the Bundles.
+
+    """
+
+    subprocess.call(
+        [
+            "bash", "-c",
+            "mkdir -p $XDG_CACHE_HOME/vim && "
+            "{0} -T dumb -E -c PlugUpdate -c quitall".format(
+                pipes.quote(arguments.vim),
+            ),
+        ],
+    )
+
+
+parser = argparse.ArgumentParser(description="Dotfiles installer")
+
+subparsers = parser.add_subparsers(help="utility commands", dest="command")
+
+help_parser = subparsers.add_parser("help")
+install_parser = subparsers.add_parser(
+    "install", help="Install the dotfiles into their proper locations.",
+)
+install_parser.add_argument(
+    "-b", "--bin-dir",
+    default=os.path.expanduser("~/.local/bin"),
+    help="the directory to use for local binaries",
+)
+install_parser.add_argument(
+    "-d", "--dest-dir",
+    default=os.path.expanduser("~"),
+    help="the directory to link into",
+)
+install_parser.add_argument(
+    "--dotfiles",
+    default=os.path.expanduser("~/.dotfiles/"),
+    help="the dotfiles to link",
+)
+install_parser.add_argument(
+    "--vim",
+    default="vim",
+    help="the vim binary to set up",
+)
+
+main(parser.parse_args())
