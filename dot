@@ -14,7 +14,7 @@ def main(arguments):
         parser.print_help()
     elif arguments.command == "install":
         make_symlinks(arguments)
-        set_up_vim(arguments)
+        #set_up_vim(arguments)
     sys.exit(0)
 
 
