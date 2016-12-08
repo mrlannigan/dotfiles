@@ -20,6 +20,7 @@ main()
     install_other_brew_packages
     install_nvm
     continue_with_dot
+    install_bash_completion
 }
 
 clone_dotfiles()
@@ -93,7 +94,7 @@ install()
 
 install_other_brew_packages()
 {
-    ensure_installed fortune cowsay thefuck wget watch
+    ensure_installed fortune cowsay thefuck wget watch bash-completion
 }
 
 install_nvm()
@@ -104,6 +105,12 @@ install_nvm()
 continue_with_dot()
 {
     exec $DOTFILES_DEST/dot install
+}
+
+install_bash_completion()
+{
+    curl -L https://raw.githubusercontent.com/docker/docker/master/contrib/completion/bash/docker -o `brew --prefix`/etc/bash_completion.d/docker
+    curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose -o /usr/local/etc/bash_completion.d/docker-compose
 }
 
 main
