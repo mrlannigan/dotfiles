@@ -94,7 +94,7 @@ install()
 
 install_other_brew_packages()
 {
-    ensure_installed fortune cowsay thefuck wget watch bash-completion
+    ensure_installed fortune cowsay thefuck wget watch bash-completion yarn
 }
 
 install_nvm()
