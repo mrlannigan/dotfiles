@@ -1,6 +1,6 @@
 [user]
 	name = Julian Lannigan
-	signingkey = 03AF5C12 
+	signingkey = D2390494559BF8C7
 	useConfigOnly = true
 [color]
 	ui = true
@@ -31,7 +31,9 @@
 	eg = !. ~/dev/dotfiles/git-utils/email-guess.sh
 	der = push
 	suh = pull
-	track = branch -u origin $(git rev-parse --abbrev-ref HEAD)
+	pt = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
+	ptnv = !git push -u origin $(git rev-parse --abbrev-ref HEAD) --no-verify
+	last = "!f() { git rev-parse HEAD | tr -d '\n' | pbcopy; }; f"
 [push]
 	default = simple
 [difftool "sourcetree"]
@@ -43,3 +45,5 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[commit]
+	gpgsign = true
