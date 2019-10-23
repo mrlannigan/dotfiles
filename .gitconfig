@@ -31,6 +31,7 @@
 	eg = !. ~/dev/dotfiles/git-utils/email-guess.sh
 	der = push
 	suh = pull
+	track = branch -u origin $(git rev-parse --abbrev-ref HEAD)
 [push]
 	default = simple
 [difftool "sourcetree"]

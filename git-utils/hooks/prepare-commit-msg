@@ -1,0 +1,3 @@
+if [ -f .git/hooks/prepare-commit-msg ]; then
+	.git/hooks/prepare-commit-msg $@
+fi

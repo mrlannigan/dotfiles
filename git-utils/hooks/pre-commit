@@ -1,0 +1,4 @@
+if [ -f .git/hooks/pre-commit ]; then
+	.git/hooks/pre-commit $@
+fi
+
