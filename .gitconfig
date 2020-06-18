@@ -1,6 +1,6 @@
 [user]
 	name = Julian Lannigan
-	signingkey = D2390494559BF8C7
+#	signingkey = 6F942CC6B5DDAA9D 
 	useConfigOnly = true
 [color]
 	ui = true
@@ -8,7 +8,7 @@
 	helper = osxkeychain
 [core]
 	excludesfile = ~/.gitignore_global
-	hooksPath = ~/dev/dotfiles/git-utils/hooks
+	hooksPath = ~/dev/personal/dotfiles/git-utils/hooks
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
@@ -27,8 +27,8 @@
 	deploy = push deploy master
 	psuo = push -u origin
 	cara = commit --amend --reset-author
-	email-guess = !. ~/dev/dotfiles/git-utils/email-guess.sh
-	eg = !. ~/dev/dotfiles/git-utils/email-guess.sh
+	email-guess = !. ~/dev/personal/dotfiles/git-utils/email-guess.sh
+	eg = !. ~/dev/personal/dotfiles/git-utils/email-guess.sh
 	der = push
 	suh = pull
 	pt = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
@@ -46,4 +46,4 @@
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
 [commit]
-	gpgsign = true
+	gpgsign = false
