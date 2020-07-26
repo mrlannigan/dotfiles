@@ -120,3 +120,11 @@ source <(aws-okta completion zsh)
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 source $HOME/dev/personal/dotfiles/ssh-agent-mgmt.sh
+
+makeCommitizenFriendly () {
+  if [ -f package.json ]; then
+    fnm use && npm install -g commitizen && commitizen init cz-conventional-changelog --save-dev --save-exact
+  else
+    echo "Not in a directory that has a package.json file"
+  elif
+}
