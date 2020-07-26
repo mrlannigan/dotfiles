@@ -126,5 +126,5 @@ makeCommitizenFriendly () {
     fnm use && npm install -g commitizen && commitizen init cz-conventional-changelog --save-dev --save-exact
   else
     echo "Not in a directory that has a package.json file"
-  elif
+  fi
 }
