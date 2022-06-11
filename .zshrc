@@ -107,24 +107,19 @@ source $ZSH/oh-my-zsh.sh
 
 # environment variables
 export DEVELOPER_WORKSPACE_PATH="${HOME}/dev"
-export DASHBOARD_WORKSPACE_PATH="${DEVELOPER_WORKSPACE_PATH}/goodway"
 export PREFER_FNM="true"
 
 # fnm
-eval "$(fnm env --multi)"
+if type fnm &>/dev/null; then
+  eval "$(fnm env --multi)"
+fi
 
 # aws-okta completion
-source <(aws-okta completion zsh)
+if type aws-okta &>/dev/null; then
+  source <(aws-okta completion zsh)
+fi
 
 # autojump registration
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-source $HOME/dev/personal/dotfiles/ssh-agent-mgmt.sh
-
-makeCommitizenFriendly () {
-  if [ -f package.json ]; then
-    fnm use && npm install -g commitizen && commitizen init cz-conventional-changelog --save-dev --save-exact
-  else
-    echo "Not in a directory that has a package.json file"
-  fi
-}
+source $HOME/.dotfiles/ssh-agent-mgmt.sh

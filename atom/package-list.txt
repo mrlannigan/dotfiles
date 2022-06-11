@@ -1,4 +1,0 @@
-docblockr@0.8.7
-editorconfig@2.0.5
-linter@1.11.18
-linter-eslint@8.0.0
