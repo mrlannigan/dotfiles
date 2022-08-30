@@ -140,5 +140,7 @@ if type zoxide &>/dev/null; then
   eval "$(zoxide init zsh)"
 fi
 
+[ -f ~/.zsh.env ] && source ~/.zsh.env
+
 alias ll="exa -l -g -a --icons --git"
 alias llt="exa -1 --icons --tree --git-ignore"
