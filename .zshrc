@@ -125,6 +125,10 @@ if type aws-okta &>/dev/null; then
   source <(aws-okta completion zsh)
 fi
 
+if type flux &>/dev/null; then
+  eval "$(flux completion zsh)"
+fi
+
 # autojump registration
 # [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
@@ -141,6 +145,8 @@ if type zoxide &>/dev/null; then
 fi
 
 [ -f ~/.zsh.env ] && source ~/.zsh.env
+[ -f ~/.zsh.k8s ] && source ~/.zsh.k8s
+[ -f ~/.zsh.mac ] && source ~/.zsh.mac
 
 alias ll="exa -l -g -a --icons --git"
 alias llt="exa -1 --icons --tree --git-ignore"

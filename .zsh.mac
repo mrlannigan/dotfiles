@@ -1,0 +1,5 @@
+alias sethomedns="sudo networksetup -setdnsservers Wi-Fi ${HOME_DNS_SERVERS}"
+alias setgoogledns="sudo networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4"
+alias clearcustomdns="sudo networksetup -setdnsservers Wi-Fi Empty"
+alias currentdns="networksetup -getdnsservers Wi-Fi"
+alias getcurrentgateway="route -n get default | grep gateway | grep -oE '((1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])\.){3}(1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])'"

@@ -43,3 +43,16 @@ awscli                       https://github.com/MetricMike/asdf-awscli.git
 make                         https://github.com/yacchi/asdf-make.git
 terraform                    https://github.com/asdf-community/asdf-hashicorp.git
 ```
+
+### set environment variables
+
+```
+❯ echo "export HOME_DNS_SERVERS=\"0.0.0.0 0.0.0.0\"" >> ~/.zsh.env
+```
+
+### enabling optional zsh includes
+
+```bash
+❯ ln -s $(pwd)/.zsh.mac ${HOME}/.zsh.mac
+❯ ln -s $(pwd)/.zsh.k8s ${HOME}/.zsh.k8s
+```
