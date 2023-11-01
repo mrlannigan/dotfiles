@@ -1,3 +1,4 @@
 if [ -f .git/hooks/pre-push ]; then
 	.git/hooks/pre-push $@
 fi
+# ./tools/hooks/pre-commit-or-push-hook.sh push

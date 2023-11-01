@@ -41,3 +41,5 @@
 	smudge = git-media-smudge %f
 [commit]
 	gpgsign = false
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/

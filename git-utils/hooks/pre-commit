@@ -2,3 +2,6 @@ if [ -f .git/hooks/pre-commit ]; then
 	.git/hooks/pre-commit $@
 fi
 
+if [ -f ./tools/hooks/pre-commit-or-push-hook.sh ]; then
+	./tools/hooks/pre-commit-or-push-hook.sh commit
+fi
